@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiuhen.interfaces.mapper.UserBaseMapper">
+  <resultMap id="BaseResultMap" type="com.qiuhen.interfaces.pojo.UserBase">
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="user_role" jdbcType="TINYINT" property="userRole" />
+    <result column="register_source" jdbcType="TINYINT" property="registerSource" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="gender" jdbcType="BOOLEAN" property="gender" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="mobile_bind_time" jdbcType="INTEGER" property="mobileBindTime" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="face" jdbcType="VARCHAR" property="face" />
+    <result column="create_time" jdbcType="INTEGER" property="createTime" />
+    <result column="push_token" jdbcType="VARCHAR" property="pushToken" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    `uid`, user_role, register_source, user_name, nick_name, gender, birthday, signature, 
+    mobile, mobile_bind_time, email, face, create_time, push_token
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_base
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_base
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="uid" keyProperty="uid" parameterType="com.qiuhen.interfaces.pojo.UserBase" useGeneratedKeys="true">
+    insert into user_base (user_role, register_source, user_name, 
+      nick_name, gender, birthday, 
+      signature, mobile, mobile_bind_time, 
+      email, face, create_time, 
+      push_token)
+    values (#{userRole,jdbcType=TINYINT}, #{registerSource,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR}, 
+      #{nickName,jdbcType=VARCHAR}, #{gender,jdbcType=BOOLEAN}, #{birthday,jdbcType=BIGINT}, 
+      #{signature,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{mobileBindTime,jdbcType=INTEGER}, 
+      #{email,jdbcType=VARCHAR}, #{face,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, 
+      #{pushToken,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="uid" keyProperty="uid" parameterType="com.qiuhen.interfaces.pojo.UserBase" useGeneratedKeys="true">
+    insert into user_base
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userRole != null">
+        user_role,
+      </if>
+      <if test="registerSource != null">
+        register_source,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="signature != null">
+        signature,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="mobileBindTime != null">
+        mobile_bind_time,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="face != null">
+        face,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="pushToken != null">
+        push_token,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userRole != null">
+        #{userRole,jdbcType=TINYINT},
+      </if>
+      <if test="registerSource != null">
+        #{registerSource,jdbcType=TINYINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BOOLEAN},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="signature != null">
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileBindTime != null">
+        #{mobileBindTime,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="face != null">
+        #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null">
+        #{pushToken,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiuhen.interfaces.pojo.UserBase">
+    update user_base
+    <set>
+      <if test="userRole != null">
+        user_role = #{userRole,jdbcType=TINYINT},
+      </if>
+      <if test="registerSource != null">
+        register_source = #{registerSource,jdbcType=TINYINT},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=BOOLEAN},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="signature != null">
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileBindTime != null">
+        mobile_bind_time = #{mobileBindTime,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="face != null">
+        face = #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="pushToken != null">
+        push_token = #{pushToken,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiuhen.interfaces.pojo.UserBase">
+    update user_base
+    set user_role = #{userRole,jdbcType=TINYINT},
+      register_source = #{registerSource,jdbcType=TINYINT},
+      user_name = #{userName,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BOOLEAN},
+      birthday = #{birthday,jdbcType=BIGINT},
+      signature = #{signature,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      mobile_bind_time = #{mobileBindTime,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      face = #{face,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      push_token = #{pushToken,jdbcType=VARCHAR}
+    where `uid` = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>

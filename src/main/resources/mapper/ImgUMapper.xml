@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiuhen.interfaces.mapper.ImgUMapper">
+  <resultMap id="BaseResultMap" type="com.qiuhen.interfaces.pojo.ImgU">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, `name`, `time`, author, img_url
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from img_u
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="select" parameterType="com.qiuhen.interfaces.pojo.ImgU" resultType="com.qiuhen.interfaces.pojo.ImgU">
+    select
+    <include refid="Base_Column_List" />
+    from img_u
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from img_u
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qiuhen.interfaces.pojo.ImgU" useGeneratedKeys="true">
+    insert into img_u (`id`,`name`, `time`, author,
+      img_url)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR},
+      #{imgUrl,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qiuhen.interfaces.pojo.ImgU" useGeneratedKeys="true">
+    insert into img_u
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="imgUrl != null">
+        img_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiuhen.interfaces.pojo.ImgU">
+    update img_u
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.qiuhen.interfaces.pojo.ImgU">
+    update img_u
+    set `name` = #{name,jdbcType=VARCHAR},
+      `time` = #{time,jdbcType=TIMESTAMP},
+      author = #{author,jdbcType=VARCHAR},
+      img_url = #{imgUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
