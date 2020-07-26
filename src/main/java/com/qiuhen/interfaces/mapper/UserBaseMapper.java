@@ -1,7 +1,12 @@
 package com.qiuhen.interfaces.mapper;
 
 import com.qiuhen.interfaces.pojo.UserBase;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
+@Repository
 public interface UserBaseMapper {
     int deleteByPrimaryKey(String uid);
 
@@ -14,4 +19,6 @@ public interface UserBaseMapper {
     int updateByPrimaryKeySelective(UserBase record);
 
     int updateByPrimaryKey(UserBase record);
+
+    List<UserBase> getAll();
 }

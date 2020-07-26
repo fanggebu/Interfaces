@@ -1,6 +1,7 @@
 package com.qiuhen.interfaces.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -72,7 +73,7 @@ public class UserBase implements Serializable {
     /**
      * 创建时间
      */
-    private Integer createTime;
+    private Date createTime;
 
     /**
      * 用户设备push_token
@@ -177,11 +178,11 @@ public class UserBase implements Serializable {
         this.face = face;
     }
 
-    public Integer getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

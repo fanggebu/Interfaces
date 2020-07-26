@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 public class ImgU implements Serializable {
-    private String id;
+    private String id;                         //id
 
     private String name;
 

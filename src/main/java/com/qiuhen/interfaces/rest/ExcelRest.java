@@ -3,11 +3,13 @@ package com.qiuhen.interfaces.rest;
 /**
  * @ProjectName: interfaces
  * @Package: com.qiuhen.interfaces.rest
- * @ClassName: User
+ * @ClassName: ExcelRest
  * @Author: qiuhen
- * @Description: 用户实体
- * @Date: 2020/5/7 19:08
+ * @Description: excel处理
+ * @Date: 2020/7/2 16:22
  * @Version: 1.0
  */
-public class User {
+public class ExcelRest {
+
+
 }

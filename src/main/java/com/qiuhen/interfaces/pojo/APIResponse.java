@@ -15,6 +15,13 @@ public class APIResponse <T> {
 
     private static final String CODE_FAIL = "fail";
 
+    private static final String NOT_FOUND = "404";
+
+    private static final String NOT_AUTHORITY = "403";
+
+    private static final String SERVER_ERROR = "500";
+
+
     private String code;
     private T data;
     private String msg;

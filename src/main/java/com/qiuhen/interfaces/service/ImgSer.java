@@ -39,7 +39,7 @@ public class ImgSer {
     public APIResponse get(ImgU img) {
         List<ImgU> list = imgMapper.select(img);
         APIResponse res = new APIResponse();
-        res.setCode("0");
+        res.setCode("200");
         res.setData(list);
         return res;
     }
@@ -81,7 +81,7 @@ public class ImgSer {
     public APIResponse del(String id) {
         APIResponse res = new APIResponse();
         int i = imgMapper.deleteByPrimaryKey(id);
-        res.setCode("0");
+        res.setCode("200");
         res.setData(i);
         return res;
     }
@@ -89,7 +89,7 @@ public class ImgSer {
     public APIResponse edit(ImgU img) {
         APIResponse res = new APIResponse();
         int imgU = imgMapper.updateByPrimaryKey(img);
-        res.setCode("0");
+        res.setCode("200");
         res.setData(imgU);
         return res;
     }
