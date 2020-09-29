@@ -39,7 +39,6 @@ public class UserSer {
             apiResponse.setMsg(e.getMessage());
         }
 
-
         return apiResponse;
     }
 
@@ -58,18 +57,16 @@ public class UserSer {
 
         return apiResponse;
 
-
-
-
     }
 
     public APIResponse<PageInfo<UserBase>> get(PageInfo<UserBase> pageInfo) {
 
         APIResponse<PageInfo<UserBase>> apiResponse = new APIResponse<>();
         try{
-            PageHelper.startPage(pageInfo.getStartRow(),pageInfo.getEndRow());
+            PageHelper.startPage(pageInfo.getPageNum(),pageInfo.getPageSize());
 
             List<UserBase> list = userBaseMapper.getAll();
+
             PageInfo<UserBase> pageInfo1 = new PageInfo<>(list);
             apiResponse.setData(pageInfo1);
             apiResponse.setCode("success");
@@ -77,8 +74,6 @@ public class UserSer {
             apiResponse.setCode("fail");
             apiResponse.setMsg(e.getMessage());
         }
-
-
         return apiResponse;
     }
 }

@@ -41,9 +41,9 @@ public class UserRest {
      * @param pageInfo
      * @return
      */
-    @RequestMapping("{id}")
+    @PostMapping("getAll")
     @ResponseBody
-    public APIResponse<PageInfo<UserBase>> getAll(@PathVariable PageInfo<UserBase> pageInfo ){
+    public APIResponse<PageInfo<UserBase>> getAll(@RequestBody PageInfo<UserBase> pageInfo ){
 
         return userSer.get(pageInfo);
     }
@@ -55,7 +55,7 @@ public class UserRest {
      */
     @PostMapping("{id}")
     @ResponseBody
-    public APIResponse<UserBase> add(@PathVariable UserBase userBase ){
+    public APIResponse<UserBase> add(@RequestBody UserBase userBase ){
 
 
 

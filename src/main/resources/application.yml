@@ -17,6 +17,7 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.qiuhen.interfaces.pojo
 
+
 logging:
   # 配置输出额日志文件名,可以带路径
   #  file: out.log

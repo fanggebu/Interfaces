@@ -7,15 +7,16 @@ server:
 
 spring:
   datasource:
-    url : jdbc:mysql://47.102.136.226:3306/jiekou
+    url : jdbc:mysql://localhost:3306/jiekou?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
     username : root
-    password :
-    driverClassName : com.mysql.jdbc.Driver
+    password : qiuhen
+    driverClassName : com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.qiuhen.interfaces.pojo
+
 
 logging:
   # 配置输出额日志文件名,可以带路径
@@ -30,3 +31,10 @@ logging:
     root: info
     # 此包下所有class以DEBUG级别输出
     com.qiuhen.interfaces.pojo: warn
+
+#pagehelper分页插件配置 以下属性不加也可以实现分页功能
+pagehelper:
+  helperDialect: mysql
+  pareasonable: true
+  supportMethodsArguments: true
+  params=count: countSql

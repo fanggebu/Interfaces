@@ -27,9 +27,9 @@
     from user_base
     where `uid` = #{uid,jdbcType=VARCHAR}
   </select>
-  <select id="getAll" resultType="com.qiuhen.interfaces.pojo.UserBase">
-    select <include refid="Base_Column_List"></include>
-    from user_base;
+  <select id="getAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from user_base
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
