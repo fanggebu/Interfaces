@@ -1,4 +1,4 @@
-package com.qiuhen.interfaces.util;
+package com.login.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,7 +50,7 @@ public class Swagger {
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("此系统为前端页面测试数据使用系统")
                 .termsOfServiceUrl("http://www.baidu.com")
-                .contact("sunf")
+                .contact("qiuhen")
                 .version("1.0")
                 .build();
     }
