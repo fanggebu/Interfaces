@@ -2,7 +2,7 @@
 
 此为为前端测试提供接口的接口集项目
 
-
+> 项目使用技术为springboot mybatis layuimini
 
 
 
